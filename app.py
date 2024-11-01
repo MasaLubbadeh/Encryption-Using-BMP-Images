@@ -10,7 +10,7 @@ root = tk.Tk()
 root.title("Encryption with images")
 root.geometry("1400x700")  # Adjusted size for larger display areas
 
-
+##only for styling
 style = ttk.Style()
 style.configure("Purple.TButton", 
                 background="#7d629c",  # Purple background
@@ -20,14 +20,13 @@ style.configure("Purple.TButton",
                 borderwidth=0,          # Border width
                )   
 
-# Placeholder variables for images and secret text
 cover_image = None
 secret_text = ""
 
 #root.config(bg="#302a2a")  # background color
 
 # Load the background image
-background_image = Image.open("images/Wallpaper.jpg")  # Replace with your image path
+background_image = Image.open("images/Wallpaper.jpg")  
 background_image = background_image.resize((1400, 700))  # Resize to fit the window
 background_photo = ImageTk.PhotoImage(background_image)
 
@@ -107,7 +106,7 @@ load_button.grid(row=1, column=0, pady=0)
 
 # Button to restore hidden text from the image
 restore_button = ttk.Button(root, text="Restore Secret Text",width=27,style="Purple.TButton")
-restore_button.grid(row=2, column=0, pady=10)  # Adjusted row for new button
+restore_button.grid(row=2, column=0, pady=10)  
 
 #############################################################################################################
 
@@ -165,7 +164,7 @@ def hide_text():
     secret_text = text_area.get("1.0", "end-1c")  # Get text from text area
     binary_secret = ''.join(format(ord(char), '08b') for char in secret_text)  # Convert text to binary
 
-    # Add a unique delimiter (e.g., eight "0" bytes to mark the end of text)
+    # Add a unique delimiter 
     binary_secret += "00000000" * 8
 
     # Get the selected bit depth
